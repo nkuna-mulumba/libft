@@ -6,7 +6,7 @@
 /*   By: jcongolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 20:10:58 by jcongolo          #+#    #+#             */
-/*   Updated: 2024/10/15 14:15:26 by jcongolo         ###   ########.fr       */
+/*   Updated: 2024/10/18 20:31:03 by jcongolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char *ft_itoa(int n) {
     int_to_str[length] = '\0'; // Define o caractere nulo no final da string
     num = n;
     if (num == 0)
-        return (free(int_to_str), ft_strdup("0")); // Libera a memória e retorna "0" se 'num' for 0
+        int_to_str = '0'; // retorna "0" se 'num' for 0
     if (num < 0) {
         int_to_str[0] = '-'; // Adiciona o sinal negativo no início da string
         num = -num; // Converte o número para positivo
