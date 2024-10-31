@@ -10,27 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h> // Inclui a biblioteca padrão de entrada e saída
+#include "libft.h" // Inclui o cabeçalho da biblioteca padrão
 
-// Função que verifica se um caractere é um dígito decimal
-int	ft_isdigit(int c) {
-    if (c >= '0' && c <= '9') { // Verifica se o caractere está entre '0' e '9'
+/*
+** A função ft_isdigit verifica se um caractere é um dígito decimal.
+** Retorna 1 se o caractere for um dígito decimal (entre '0' e '9'), caso contrário retorna 0.
+*/
+int ft_isdigit(int c)
+{
+    // Verifica se o caractere está entre '0' e '9'
+    if (c >= '0' && c <= '9')
+    {
         return 1; // Retorna 1 se for um dígito decimal
-    } else {
+    }
+    else
+    {
         return 0; // Retorna 0 se não for um dígito decimal
     }
 }
+/*
+int main()
+{
+    char ch1 = '3'; // Caractere de exemplo dígito
+    char ch2 = 'a'; // Caractere de exemplo não dígito
+    char ch3 = '7'; // Outro caractere de exemplo dígito
 
-int main() {
-    char digitoDecimal; // Declara uma variável para armazenar o dígito inserido pelo usuário
+    // Chama ft_isdigit para verificar se os caracteres são dígitos decimais
+    int resultado1 = ft_isdigit(ch1);
+    int resultado2 = ft_isdigit(ch2);
+    int resultado3 = ft_isdigit(ch3);
 
-    printf("Digite um digito: "); // Solicita ao usuário que digite um dígito
-    scanf("%c", &digitoDecimal); // Lê o dígito inserido pelo usuário
+    // Imprime os resultados
+    printf("Caractere '%c': %d\n", ch1, resultado1);
+    printf("Caractere '%c': %d\n", ch2, resultado2);
+    printf("Caractere '%c': %d\n", ch3, resultado3);
 
-    if (ft_isdigit(digitoDecimal)) { // Verifica se o dígito inserido é um dígito decimal
-        printf("%c é um digito decimal.\n", digitoDecimal); // Imprime mensagem se for um dígito decimal
-    } else {
-        printf("%c nao é um digito decimal.\n", digitoDecimal); // Imprime mensagem se não for um dígito decimal
-    }
     return 0; // Retorna 0 para indicar que o programa terminou com sucesso
 }
+*/

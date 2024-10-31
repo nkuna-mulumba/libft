@@ -10,35 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>   // Inclui a biblioteca ctype.h para funções de manipulação de caracteres
-#include <stdio.h>   // Inclui a biblioteca stdio.h para funções de entrada e saída
+#include "libft.h" // Inclui o cabeçalho da biblioteca personalizada "libft.h"
 
-// Função que converte um caractere maiúsculo para minúsculo
+/*
+** A função ft_tolower converte um caractere maiúsculo para minúsculo.
+** Se o caractere estiver entre 'A' e 'Z', a função retorna o caractere convertido para minúsculo.
+** Caso contrário, a função retorna o caractere original.
+*/
 int ft_tolower(int c)
 {
-    if ((c >= 'A') && (c <= 'Z'))  // Verifica se o caractere está entre 'A' e 'Z'
+    // Verifica se o caractere está entre 'A' e 'Z'
+    if ((c >= 'A') && (c <= 'Z'))
     {
-        return (c + 32);  // Converte o caractere para minúsculo somando 32 ao valor ASCII
+        return (c + 32); // Converte o caractere para minúsculo somando 32 ao valor ASCII
     }
     else
     {
-        return (c);  // Retorna o caractere original se não for maiúsculo
+        return (c); // Retorna o caractere original se não for maiúsculo
     }
 }
-
+/*
 int main()
 {
-    char mauscula[50] = "NKUNA";  // Inicializa a string com caracteres maiúsculos
-    char menuscula[50];  // Declara uma string para armazenar os caracteres minúsculos
-    int i = 0;  // Inicializa o índice para percorrer a string
+    char maiusculo = 'A'; // Caractere maiúsculo de exemplo
+    char minusculo = ft_tolower(maiusculo); // Chama ft_tolower para converter o caractere para minúsculo
 
-    while (mauscula[i] != '\0')  // Loop até o final da string (caractere nulo)
-    {
-        menuscula[i] = ft_tolower(mauscula[i]);  // Converte cada caractere para minúsculo
-        i++;  // Incrementa o índice
-    }
-    menuscula[i] = '\0';  // Adiciona o caractere nulo ao final da string convertida
-    printf("Caracteres maiuscula: %s é convertido para caracteres menuscula: %s.\n", mauscula, menuscula);  // Imprime as strings original e convertida
-    return 0;  // Retorna 0 para indicar que o programa terminou com sucesso
+    // Imprime o resultado da conversão
+    printf("Caractere maiúsculo: %c\n", maiusculo);
+    printf("Caractere minúsculo: %c\n", minusculo);
+
+    return 0; // Retorna 0 para indicar que o programa terminou com sucesso
 }
-
+*/

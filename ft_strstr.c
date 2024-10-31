@@ -10,14 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>  // Inclui a biblioteca para manipulação de strings
-#include <stdio.h>   // Inclui a biblioteca para entrada e saída padrão
+#include "libft.h" // Inclui o cabeçalho da biblioteca padrão
 
-// Função que procura a primeira ocorrência da substring 'needle' na string 'haystack'
+/*
+** A função ft_strstr procura a primeira ocorrência da substring 'needle' na string 'haystack'.
+** Retorna um ponteiro para a posição inicial da substring em 'haystack' ou NULL se 'needle' não for encontrado.
+*/
 char *ft_strstr(const char *haystack, const char *needle)
 {
     int i = 0;  // Inicializa o índice 'i' para percorrer 'haystack'
-    
+
     // Se 'needle' for uma string vazia, retorna 'haystack'
     if (*needle == '\0')
     {
@@ -29,15 +31,15 @@ char *ft_strstr(const char *haystack, const char *needle)
         while (haystack[i] != '\0')
         {
             const char *h = &haystack[i];  // Ponteiro para a posição atual em 'haystack'
-            const char *n = needle;        // Ponteiro para o início de 'needle'
+            const char *n = needle;  // Ponteiro para o início de 'needle'
             int j = 0;  // Inicializa o índice 'j' para percorrer 'needle'
-            
+
             // Compara os caracteres subsequentes de 'haystack' e 'needle'
             while ((h[j] != '\0') && (n[j] != '\0') && (h[j] == n[j]))
             {
                 j++;  // Incrementa 'j' se os caracteres forem iguais
             }
-            
+
             // Se 'needle' for encontrado, retorna o ponteiro para a posição inicial
             if (n[j] == '\0')
             {
@@ -48,22 +50,25 @@ char *ft_strstr(const char *haystack, const char *needle)
     }
     return NULL;  // Retorna NULL se 'needle' não for encontrado em 'haystack'
 }
-
+/*
 int main()
 {
-    const char um[] = "Mulumba wa Tshimpamba";  // String onde será feita a busca
-    const char dois[] = "wa";  // Substring a ser procurada
-    char *ocorrencia = ft_strstr(um, dois);  // Chama a função para encontrar a substring
-    
-    // Verifica se a substring foi encontrada e imprime o resultado
-    if (ocorrencia != NULL)
+    const char haystack[] = "Este é um exemplo de teste."; // String de exemplo 'haystack'
+    const char needle[] = "exemplo"; // Substring 'needle' a ser procurada
+
+    // Chama ft_strstr para procurar 'needle' em 'haystack'
+    char *resultado = ft_strstr(haystack, needle);
+
+    // Verifica o resultado da busca
+    if (resultado != NULL)
     {
-        printf("Primeira ocorrência de %s encontrado em %s\n", dois, um);
+        printf("Substring '%s' encontrada em: %s\n", needle, resultado);
     }
     else
     {
-        printf("Não encontrado a primeira ocorrência de %s em %s\n", dois, um);
+        printf("Substring '%s' não encontrada em '%s'.\n", needle, haystack);
     }
-    return 0;  // Retorna 0 para indicar que o programa terminou com sucesso
-}
 
+    return 0; // Retorna 0 para indicar que o programa terminou com sucesso
+}
+*/

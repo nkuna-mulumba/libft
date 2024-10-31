@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h" // Inclui o cabeçalho da biblioteca padrão
+
 /*Passo a Passo para Criar a Função ft_itoa
 Contar Dígitos: Crie uma função auxiliar digit_counter para contar o número de dígitos no número inteiro. Esta função também trata casos especiais como 0 e -2147483648.
 Calcular Potência de 10: Crie uma função auxiliar exp_counter para calcular a potência de 10 correspondente ao número de dígitos. Esta função ajuda a extrair cada dígito do número.

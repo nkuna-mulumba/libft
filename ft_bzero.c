@@ -10,41 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h" // Inclui o cabeçalho da biblioteca padrão
 
-// Função que zera os primeiros 'n' bytes da área de memória apontada por 's'
+/*
+** A função ft_bzero zera os primeiros 'n' bytes da área de memória apontada por 's'.
+** Útil para inicializar blocos de memória com zero.
+*/
 void ft_bzero(void *s, size_t n)
 {
-    unsigned char *str;
-    size_t i;
+    unsigned char *str; // Declaração do ponteiro para a área de memória
+    size_t i; // Declaração da variável 'i' para uso como índice
 
     // Converte o ponteiro 's' para um ponteiro de unsigned char
     str = (unsigned char *)s;
-    i = 0;
+    i = 0; // Inicializa o índice 'i' com 0
 
     // Itera sobre os primeiros 'n' bytes e os zera
     while (i < n)
     {
-        str[i] = 0;
-        i++;
+        str[i] = 0; // Zera o byte atual
+        i++; // Incrementa o índice 'i'
     }
 }
-
+/*
 int main()
 {
-    char org[50]; // Declara um array de 50 caracteres
-    size_t bytes; // Declara uma variável para armazenar o número de bytes
+    char str[20] = "Exemplo de teste"; // String de exemplo
 
-    // Solicita ao usuário o número de bytes a serem zerados
-    printf("Quantas memoria necessitas a locar com zero ou seja nulo?\n");
-    scanf("%zu", &bytes);
+    // Chama ft_bzero para zerar os primeiros 5 bytes da string
+    ft_bzero(str, 5);
 
-    // Chama a função ft_bzero para zerar os primeiros 'bytes' do array 'org'
-    ft_bzero(org, bytes);
+    // Imprime a string resultante
+    printf("String após ft_bzero: %s\n", str);
 
-    // Imprime o valor preenchido na variável 'org'
-    printf("Valor preenchido na variavel ORG é: %s\n", org);
-
-    return 0; // Indica que o programa terminou corretamente
+    return 0; // Retorna 0 para indicar que o programa terminou com sucesso
 }
-
+*/

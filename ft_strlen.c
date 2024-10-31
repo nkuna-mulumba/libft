@@ -10,31 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h> // Inclui a biblioteca padrão de entrada e saída
+#include "libft.h" // Inclui o cabeçalho da biblioteca padrão
 
-size_t	ft_strlen(const char *s) // Declaração da função ft_strlen que recebe uma string e retorna seu comprimento
+/*
+** A função ft_strlen calcula o comprimento da string 's' passada como argumento.
+** Retorna o número de caracteres na string, excluindo o terminador nulo '\0'.
+*/
+size_t ft_strlen(const char *s)
 {
-	size_t	i; // Declaração da variável i do tipo size_t
+    size_t i; // Declaração da variável i do tipo size_t
 
-	i = 0; // Inicializa i com 0
-	while (s[i] != '\0') // Loop que continua enquanto o caractere atual não for o caractere nulo
-	{
-		i++; // Incrementa i
-	}
-	return (i); // Retorna o comprimento da string
+    i = 0; // Inicializa i com 0
+    
+    // Loop que continua enquanto o caractere atual não for o caractere nulo
+    while (s[i] != '\0')
+    {
+        i++; // Incrementa i
+    }
+
+    return (i); // Retorna o comprimento da string
 }
-
-/* int main() // Função principal
+/*
+int main()
 {
-	char	nome[]; // Declaração do array de caracteres nome
-	printf("Introza o seu nome para te mostrar a longitude.\n"); // Imprime uma mensagem pedindo o nome do usuário
-	scanf("%s", nome); // Lê o nome do usuário e armazena em nome
-	
-	size_t j; // Declaração da variável j do tipo size_t
+    const char str[] = "Exemplo de teste"; // String de exemplo
+    size_t comprimento = ft_strlen(str); // Chama ft_strlen para calcular o comprimento da string
 
-	j = ft_strlen(nome); // Chama a função ft_strlen para obter o comprimento do nome
-	printf("A longitude de : %s é : %zu caracteres. \n", nome, j); // Imprime o comprimento do nome
-	
-	return 0; // Retorna 0 para indicar que o programa terminou com sucesso
-} */
+    // Imprime o comprimento da string
+    printf("Comprimento da string: %zu\n", comprimento);
 
+    return 0; // Retorna 0 para indicar que o programa terminou com sucesso
+}
+*/

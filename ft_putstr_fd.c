@@ -11,39 +11,25 @@
 /* ************************************************************************** */
 
 #include "libft.h" // Inclui o cabeçalho da biblioteca personalizada "libft"
-#include <stdio.h> // Inclui a biblioteca padrão de entrada e saída
-#include <fcntl.h> // Inclui a biblioteca para manipulação de ficheiros
-#include <unistd.h> // Inclui a biblioteca para chamadas ao sistema POSIX
 
-// Função que escreve uma string 's' no descritor de ficheiro 'fd'
+/*
+** A função ft_putstr_fd escreve a string 's' no descritor de arquivo 'fd'.
+** Se o descritor de arquivo for válido, a função escreve a string completa.
+*/
 void ft_putstr_fd(char *s, int fd)
 {
-    // Escreve a string 's' no descritor de ficheiro 'fd'
+    // Escreve a string 's' no descritor de arquivo 'fd'
     write(fd, s, ft_strlen(s));
 }
 /*
 int main()
 {
-    // Abre (ou cria) o ficheiro "test.txt" para escrita, com permissão de anexar dados
-    int fd = open("test.txt", O_WRONLY | O_CREAT | O_APPEND, 0644);
-    
-    // Verifica se houve erro ao abrir o ficheiro
-    if (fd < 0)
-    {
-        // Imprime uma mensagem de erro se não conseguiu abrir o ficheiro
-        perror("Error opening file");
-        return 1; // Retorna 1 para indicar erro
-    }
+    char str[] = "Olá, mundo!"; // String a ser escrita
+    int fd = 1; // File descriptor para a saída padrão (stdout)
 
-    char str[100]; // Declara um buffer para armazenar a string de entrada
-    printf("Introduce una cadena: "); // Pede ao usuário para introduzir uma string
-    fgets(str, sizeof(str), stdin); // Lê uma linha de texto da entrada padrão (teclado)
-
-    // Chama a função para escrever a string no ficheiro
+    // Chama ft_putstr_fd para escrever a string no file descriptor
     ft_putstr_fd(str, fd);
-    
-    // Fecha o ficheiro
-    close(fd);
-    return 0; // Retorna 0 para indicar sucesso
+
+    return 0; // Retorna 0 para indicar que o programa terminou com sucesso
 }
 */

@@ -10,26 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft.h" // Inclui o cabeçalho da biblioteca padrão
 
 /*
-função ft_split, que divide uma string de entrada s em substrings utilizando um delimitador c e armazena as substrings resultantes em um array de strings. 
-
-				Principais Funções Auxiliares
-ft_count_substrings: Conta o número de substrings que serão criadas a partir da string de entrada.
-
-ft_fill_substrings: Preenche o array de substrings com as partes divididas da string de entrada.
-
-ft_freememoria: Libera a memória alocada para as substrings em caso de erro.
+** Função ft_split, que divide uma string de entrada s em substrings utilizando um delimitador c
+** e armazena as substrings resultantes em um array de strings.
+** 
+** Principais Funções Auxiliares:
+** ft_count_substrings: Conta o número de substrings que serão criadas a partir da string de entrada.
+** ft_fill_substrings: Preenche o array de substrings com as partes divididas da string de entrada.
+** ft_freememoria: Libera a memória alocada para as substrings em caso de erro.
 */
-
-#include "libft.h"
 
 // Conta o número de substrings na string de entrada 's' usando o delimitador 'c'
 static int ft_count_substrings(char const *s, char c) {
-    int i;
-    int is_substring;
-    int num_substrings;
+    int i;                // Índice para percorrer a string
+    int is_substring;     // Flag para verificar se estamos em uma substring
+    int num_substrings;   // Contador do número de substrings
 
     // Se 's' for NULL, retorna 0
     if (!s)
@@ -49,14 +46,15 @@ static int ft_count_substrings(char const *s, char c) {
         }
         i++;
     }
+
     return (num_substrings);
 }
 
 // Preenche o array de substrings com as partes divididas da string de entrada 's' usando o delimitador 'c'
 int ft_fill_substrings(const char *s, char c, char **split_strings) {
-    int i;
-    int substr_start;
-    int index_substr;
+    int i;             // Índice para percorrer a string de entrada
+    int substr_start;  // Início da substring
+    int index_substr;  // Índice da substring no array
 
     i = 0;
     substr_start = -1;
@@ -66,15 +64,18 @@ int ft_fill_substrings(const char *s, char c, char **split_strings) {
     while (s[i]) {
         if (s[i] != c && substr_start < 0)
             substr_start = i;
+
         if ((s[i] == c || s[i + 1] == '\0') && (substr_start >= 0)) {
             split_strings[index_substr++] = ft_substr(s, substr_start, i - substr_start + (s[i] != c));
             substr_start = -1;
+
             // Verifica se a alocação de memória para a substring foi bem-sucedida
             if (!split_strings[index_substr - 1])
                 return (0);
         }
         i++;
     }
+
     // Termina o array de substrings com NULL
     split_strings[index_substr] = NULL;
     return (1);
@@ -83,18 +84,20 @@ int ft_fill_substrings(const char *s, char c, char **split_strings) {
 // Libera a memória alocada para as substrings
 void ft_freememoria(char **split_strings) {
     int i = 0;
+
     // Libera cada substring
     while (split_strings[i]) {
         free(split_strings[i]);
         i++;
     }
+
     // Libera o array de strings
     free(split_strings);
 }
 
 // Divide a string 's' usando o delimitador 'c' e retorna um array de substrings
 char **ft_split(char const *s, char c) {
-    char **split_strings;
+    char **split_strings; // Array de substrings
 
     // Verifica se 's' é NULL
     if (!s)
@@ -113,24 +116,24 @@ char **ft_split(char const *s, char c) {
 
     return (split_strings);
 }
-
-// Função main para testar ft_split
-/*int main() {
-    const char *input_string = "Eu sou Mangop";
-    char delimiter = ' ';
-    char **substrings_array = ft_split(input_string, delimiter);
+/*
+int main() {
+    char **result;       // Array de substrings resultantes
+    char str[] = "Olá, mundo! Vamos dividir esta string."; // String de exemplo
     int i = 0;
 
-    if (substrings_array) {
-        while (substrings_array[i] != NULL) {
-            printf("%s\n", substrings_array[i]);
-            free(substrings_array[i]);
-            i++;
-        }
-        free(substrings_array);
-    } else {
-        return (0);
+    // Chama ft_split para dividir a string usando o delimitador ' '
+    result = ft_split(str, ' ');
+
+    // Imprime cada substring resultante
+    while (result[i] != NULL) {
+        printf("Substring %d: %s\n", i, result[i]);
+        i++;
     }
-    return 0;
+
+    // Libera a memória alocada para as substrings
+    ft_freememoria(result);
+
+    return 0; // Retorna 0 para indicar que o programa terminou com sucesso
 }
 */

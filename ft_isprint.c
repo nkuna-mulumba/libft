@@ -10,9 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h> // Inclui a biblioteca padrão de entrada e saída
+#include "libft.h" // Inclui o cabeçalho da biblioteca padrão
 
-// Função que verifica se um caractere é imprimível
+/*
+** A função ft_isprint verifica se um caractere é imprimível.
+** Retorna 1 se o caractere estiver no intervalo imprimível da tabela ASCII (32 a 126), caso contrário retorna 0.
+*/
 int ft_isprint(int c)
 {
     // Verifica se o caractere está no intervalo imprimível da tabela ASCII
@@ -25,28 +28,23 @@ int ft_isprint(int c)
         return 0; // Retorna 0 se o caractere não for imprimível
     }
 }
-
+/*
 int main()
 {
-    char caract_imp; // Declara uma variável para armazenar o caractere de entrada
+    char ch1 = ' '; // Caractere de exemplo imprimível (espaço)
+    char ch2 = 'A'; // Caractere de exemplo imprimível
+    char ch3 = 127; // Caractere de exemplo não imprimível
 
-    // Solicita ao usuário que introduza um caractere imprimível
-    printf("Introduza qualquer tipo de caractere que seja imprimível: ");
-    // Lê o caractere introduzido pelo usuário
-    scanf("%c", &caract_imp);
+    // Chama ft_isprint para verificar se os caracteres são imprimíveis
+    int resultado1 = ft_isprint(ch1);
+    int resultado2 = ft_isprint(ch2);
+    int resultado3 = ft_isprint(ch3);
 
-    // Verifica se o caractere introduzido é imprimível usando a função ft_isprint
-    if (ft_isprint(caract_imp))
-    {
-        // Imprime uma mensagem indicando que o caractere é imprimível
-        printf("O caractere (dígito) %c é imprimível.\n", caract_imp);
-    }
-    else
-    {
-        // Imprime uma mensagem indicando que o caractere não é imprimível
-        printf("O caractere (dígito) %c não é imprimível.\n", caract_imp);
-    }
+    // Imprime os resultados
+    printf("Caractere '%c': %d\n", ch1, resultado1);
+    printf("Caractere '%c': %d\n", ch2, resultado2);
+    printf("Caractere '%c': %d\n", ch3, resultado3);
 
     return 0; // Retorna 0 para indicar que o programa terminou com sucesso
 }
-
+*/

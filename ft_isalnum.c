@@ -10,9 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h" // Inclui o cabeçalho da biblioteca padrão
 
-// Função para verificar se um caractere é alfanumérico
+/*
+** A função ft_isalnum verifica se um caractere é alfanumérico.
+** Retorna 1 se for uma letra, 2 se for um dígito, e 0 se não for alfanumérico.
+*/
 int ft_isalnum(int c)
 {
     // Verifica se o caractere é uma letra minúscula ou maiúscula
@@ -30,31 +33,23 @@ int ft_isalnum(int c)
         return 0; // Retorna 0 se não for alfanumérico
     }
 }
-
+/*
 int main()
 {
-    char alNum; // Declaração da variável para armazenar o caractere inserido
+    char ch1 = 'a'; // Caractere de exemplo alfabético
+    char ch2 = '9'; // Caractere de exemplo numérico
+    char ch3 = '#'; // Caractere de exemplo não alfanumérico
 
-    // Solicita ao usuário que insira um caractere alfanumérico
-    printf("Digite qualquer tipo de digito que seja AlfaNumerico: ");
-    scanf("%c", &alNum); // Lê o caractere inserido pelo usuário
-    
-    int result = ft_isalnum(alNum); // Chama a função ft_isalnum e armazena o resultado
-    if (result == 1)
-    {       
-        // Se o resultado for 1, o caractere é uma letra
-        printf("%c é uma letra\n", alNum);
-    }
-    else if (result == 2)
-    {
-        // Se o resultado for 2, o caractere é um dígito
-        printf("%c é um dígito decimal\n", alNum);
-    }
-    else
-    {
-        // Se o resultado for 0, o caractere não é alfanumérico
-        printf("%c não é alfanumérico\n", alNum);
-    }
+    // Chama ft_isalnum para verificar se os caracteres são alfanuméricos
+    int resultado1 = ft_isalnum(ch1);
+    int resultado2 = ft_isalnum(ch2);
+    int resultado3 = ft_isalnum(ch3);
+
+    // Imprime os resultados
+    printf("Caractere '%c': %d\n", ch1, resultado1);
+    printf("Caractere '%c': %d\n", ch2, resultado2);
+    printf("Caractere '%c': %d\n", ch3, resultado3);
+
     return 0; // Retorna 0 para indicar que o programa terminou com sucesso
 }
-
+*/

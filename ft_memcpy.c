@@ -10,49 +10,46 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h" // Inclui o cabeçalho da biblioteca personalizada libft
 
-// Declaração da função ft_memcpy
-void *ft_memcpy(void *dest, const void *src, size_t n);
-
-int main()
-{
-    char destino[50];  // Array para armazenar a string de destino
-    char origem[20];   // Array para armazenar a string de origem
-    size_t bytes;      // Variável para armazenar o número de bytes a serem copiados
-
-    // Solicita ao usuário que insira a string de origem
-    printf("Introduza o nome a ser copiado para DESTINO: ");
-    scanf("%s", origem);  // Lê a string de origem
-
-    // Solicita ao usuário que insira o número de caracteres a serem copiados
-    printf("Quantos caracteres necessitas copiar? ");
-    scanf("%zu", &bytes);  // Lê o número de bytes
-
-    // Chama a função ft_memcpy para copiar os bytes da origem para o destino
-    ft_memcpy(destino, origem, bytes);
-    destino[bytes] = '\0';  // Adiciona o terminador nulo à string de destino
-
-    // Exibe a string copiada e o número de bytes copiados
-    printf("Foi copiado: %s como caracteres na variável destino, segundo tamanho de %zu bytes introduzido.\n", destino, bytes);
-
-    return 0;  // Retorna 0 para indicar que o programa terminou com sucesso
-}
-
-// Implementação da função ft_memcpy
+/*
+** A função ft_memcpy copia n bytes da área de memória src para a área de memória dest.
+** Retorna um ponteiro para dest.
+*/
 void *ft_memcpy(void *dest, const void *src, size_t n)
 {
-    size_t i;  // Índice para iterar através dos bytes
-    unsigned char *d;  // Ponteiro para o destino convertido para unsigned char
-    const unsigned char *s;  // Ponteiro para a origem convertido para unsigned char
+    size_t i; // Declaração de um índice para o loop
+    unsigned char *d; // Declaração de um ponteiro para a área de memória de destino
+    const unsigned char *s; // Declaração de um ponteiro constante para a área de memória de origem
 
-    d = (unsigned char *)dest;  // Converte o ponteiro de destino
-    s = (const unsigned char *)src;  // Converte o ponteiro de origem
-    for (i = 0; i < n; i++)  // Loop para copiar byte a byte
+    // Se dest e src forem ambos NULL, retorna NULL
+    if (!dest && !src)
+        return (NULL);
+
+    d = (unsigned char *)dest; // Converte dest para unsigned char *
+    s = (const unsigned char *)src; // Converte src para const unsigned char *
+
+    i = 0; // Inicializa o índice com 0
+    // Copia n bytes de src para dest
+    while (i < n)
     {
-        d[i] = s[i];  // Copia o byte da origem para o destino
+        d[i] = s[i]; // Copia o byte atual de src para dest
+        i++; // Incrementa o índice
     }
-    return dest;  // Retorna o ponteiro de destino
+    return (dest); // Retorna o ponteiro para dest
 }
+/*
+int main()
+{
+    char src[] = "Exemplo de teste"; // String de origem a ser copiada
+    char dest[20]; // Array de destino com espaço suficiente para a string copiada
 
+    // Chama ft_memcpy para copiar src para dest
+    ft_memcpy(dest, src, sizeof(src));
+
+    // Imprime a string copiada para verificar se a cópia foi bem-sucedida
+    printf("String copiada: %s\n", dest);
+
+    return 0; // Retorna 0 para indicar que o programa terminou com sucesso
+}
+*/

@@ -10,35 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>  // Inclui a biblioteca padrão de entrada e saída
+#include "libft.h" // Inclui o cabeçalho da biblioteca padrão
 
-int ft_isascii(int c)  // Declaração da função ft_isascii que verifica se um caractere está na tabela ASCII
+/*
+** A função ft_isascii verifica se um caractere está na tabela ASCII.
+** Retorna 1 se o caractere estiver no intervalo ASCII (0 a 127), caso contrário retorna 0.
+*/
+int ft_isascii(int c)
 {
-    if (c >= 0 && c <= 127)  // Verifica se o valor de c está entre 0 e 127
+    // Verifica se o valor de c está entre 0 e 127
+    if (c >= 0 && c <= 127)
     {
-        return (1);  // Retorna 1 se c estiver dentro do intervalo ASCII
+        return (1); // Retorna 1 se c estiver dentro do intervalo ASCII
     }
     else
     {
-        return (0);  // Retorna 0 se c não estiver dentro do intervalo ASCII
+        return (0); // Retorna 0 se c não estiver dentro do intervalo ASCII
     }
 }
 
-int main()  // Função principal do programa
+int main()
 {
-    char caractAscii;  // Declaração da variável caractAscii do tipo char
+    char ch1 = 'A'; // Caractere de exemplo ASCII
+    char ch2 = 128; // Caractere fora do intervalo ASCII
 
-    printf("Digite qualquer caracter que esteja dentro da tabela ASCII: ");  // Solicita ao usuário que digite um caractere
-    scanf("%c", &caractAscii);  // Lê o caractere digitado pelo usuário e armazena em caractAscii
+    // Chama ft_isascii para verificar se os caracteres estão na tabela ASCII
+    int resultado1 = ft_isascii(ch1);
+    int resultado2 = ft_isascii(ch2);
 
-    if (ft_isascii(caractAscii))  // Chama a função ft_isascii para verificar se o caractere está na tabela ASCII
-    {
-        printf("O valor ASCII de %c é %d esta dentro da tabela ASCII. \n", caractAscii, caractAscii);  // Imprime que o caractere está na tabela ASCII
-    }
-    else
-    {
-        printf("O valor ASCII de %c é %d nao se contra dentro da tabela ASCII. \n", caractAscii, caractAscii);  // Imprime que o caractere não está na tabela ASCII
-    }
-    return 0;  // Retorna 0 para indicar que o programa terminou com sucesso
+    // Imprime os resultados
+    printf("Caractere '%c' (%d): %d\n", ch1, ch1, resultado1);
+    printf("Caractere '%c' (%d): %d\n", ch2, ch2, resultado2);
+
+    return 0; // Retorna 0 para indicar que o programa terminou com sucesso
 }
-

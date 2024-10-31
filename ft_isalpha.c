@@ -10,35 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h" // Inclui o cabeçalho da biblioteca padrão
 
-// Função para verificar se um caractere é uma letra do alfabeto
-int ft_isalpha(char *c) {
+/*
+** A função ft_isalpha verifica se um caractere é uma letra do alfabeto.
+** Retorna 1 se for uma letra maiúscula ou minúscula, caso contrário retorna 0.
+*/
+int ft_isalpha(int c)
+{
     // Verifica se o caractere é uma letra maiúscula ou minúscula
-    if ((*c >= 'A' && *c <= 'Z') || (*c >= 'a' && *c <= 'z')) {
+    if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+    {
         return 1; // Retorna 1 se for uma letra
-    } else {
+    }
+    else
+    {
         return 0; // Retorna 0 se não for uma letra
     }
 }
+/*
+int main()
+{
+    char ch1 = 'a'; // Caractere de exemplo alfabético
+    char ch2 = 'Z'; // Caractere de exemplo alfabético
+    char ch3 = '1'; // Caractere de exemplo não alfabético
 
-int main() {
-    char caract; // Declaração da variável para armazenar o caractere
-    
-    // Solicita ao usuário que digite um caractere
-    printf("Digite um caractere: ");
-    // Lê o caractere digitado pelo usuário
-    scanf("%c", &caract);
-    
-    // Chama a função ft_isalpha passando o endereço de caract
-    if (ft_isalpha(&caract)) {
-        // Se for uma letra, imprime que é uma letra do alfabeto
-        printf("%c é uma letra do alfabeto.\n", caract);
-    } else {
-        // Se não for uma letra, imprime que não é uma letra do alfabeto
-        printf("%c não é uma letra do alfabeto.\n", caract);
-    }
-    
+    // Chama ft_isalpha para verificar se os caracteres são letras
+    int resultado1 = ft_isalpha(ch1);
+    int resultado2 = ft_isalpha(ch2);
+    int resultado3 = ft_isalpha(ch3);
+
+    // Imprime os resultados
+    printf("Caractere '%c': %d\n", ch1, resultado1);
+    printf("Caractere '%c': %d\n", ch2, resultado2);
+    printf("Caractere '%c': %d\n", ch3, resultado3);
+
     return 0; // Retorna 0 para indicar que o programa terminou com sucesso
 }
-
+*/

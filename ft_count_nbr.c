@@ -12,8 +12,10 @@
 
 #include "libft.h" // Inclui o cabeçalho da biblioteca padrão
 
-// A função ft_count_nbr conta o número de dígitos de um número inteiro
-// Inclui o sinal '-' se for negativo e '0' para zero.
+/*
+** A função ft_count_nbr conta o número de dígitos de um número inteiro.
+** Inclui o sinal '-' se for negativo e '0' para zero.
+*/
 int ft_count_nbr(int n)
 {
     int length_nbr; // Declara uma variável para armazenar o comprimento do número
@@ -32,14 +34,26 @@ int ft_count_nbr(int n)
         n = n / 10; // Divide n por 10 para remover o último dígito
         length_nbr++; // Incrementa length_nbr para contar o dígito removido
     }
+
     return (length_nbr); // Retorna o comprimento total do número
 }
 /*
-int main() // Função principal do programa
+int main()
 {
-    int number = -0; // Declara a variável number e a inicializa com -0
-    int length_number = ft_count_nbr(number); // Chama a função ft_count_nbr e armazena o resultado em length_number
-    printf("%d\n", length_number); // Imprime o comprimento do número
+    int num1 = 12345; // Número de exemplo positivo
+    int num2 = -6789; // Número de exemplo negativo
+    int num3 = 0; // Número zero de exemplo
+
+    // Chama ft_count_nbr para contar os dígitos dos números de exemplo
+    int count1 = ft_count_nbr(num1);
+    int count2 = ft_count_nbr(num2);
+    int count3 = ft_count_nbr(num3);
+
+    // Imprime o número de dígitos contados
+    printf("Número de dígitos em %d: %d\n", num1, count1);
+    printf("Número de dígitos em %d: %d\n", num2, count2);
+    printf("Número de dígitos em %d: %d\n", num3, count3);
+
     return 0; // Retorna 0 para indicar que o programa terminou com sucesso
 }
 */

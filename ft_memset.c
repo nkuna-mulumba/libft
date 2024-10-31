@@ -10,36 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h> // Inclui a biblioteca padrão de entrada e saída
+#include "libft.h" // Inclui o cabeçalho da biblioteca personalizada libft
 
-void *ft_memset(void *s, int c, size_t n) // Declara a função ft_memset que recebe um ponteiro, um inteiro e um tamanho
+/*
+** A função ft_memset preenche os primeiros n bytes da área de memória apontada por s com o byte c.
+** Retorna um ponteiro para a área de memória s.
+*/
+void *ft_memset(void *s, int c, size_t n)
 {
     unsigned char *str; // Declara um ponteiro para unsigned char
     size_t i; // Declara uma variável do tipo size_t para iteração
 
     i = 0; // Inicializa a variável i com 0
     str = (unsigned char *)s; // Converte o ponteiro s para um ponteiro de unsigned char e atribui a str
-    while (i < n) // Loop enquanto i for menor que n
+
+    // Loop enquanto i for menor que n
+    while (i < n)
     {
-        str[i] = (unsigned char) c; // Atribui o valor de c convertido para unsigned char à posição i de str
+        str[i] = (unsigned char)c; // Atribui o valor de c convertido para unsigned char à posição i de str
         i++; // Incrementa i
     }
+    
     return (s); // Retorna o ponteiro original s
 }
-
-int main() // Função principal
+/*
+int main()
 {
-    char org[50]; // Declara um array de char com 50 posições
-    char caract; // Declara uma variável char para armazenar o caractere de entrada
-    size_t bytes; // Declara uma variável size_t para armazenar o número de bytes
+    char str[50] = "Esta é uma string de exemplo."; // Declara uma string de exemplo
 
-    printf("Digite valor ou caracter a ser inicializada a variavel ORG: \n"); // Pede ao usuário para digitar um caractere
-    scanf("%c", &caract); // Lê o caractere digitado pelo usuário
-    printf("Digite tamanho a ser alogado na variavel ORG: \n"); // Pede ao usuário para digitar o tamanho
-    scanf("%zu", &bytes); // Lê o tamanho digitado pelo usuário
-    ft_memset(org, caract, bytes); // Chama a função ft_memset para preencher org com o caractere digitado
-    org[bytes] = '\0'; // Adiciona o caractere nulo na posição bytes para terminar a string
-    printf("A sua variavel foi reniciada com: %s como valor ou caractere.\n", org); // Imprime o valor inicializado de org
+    // Chama ft_memset para preencher os primeiros 10 bytes de str com '*'
+    ft_memset(str, '*', 10);
+
+    // Imprime a string resultante
+    printf("String após ft_memset: %s\n", str);
+
     return 0; // Retorna 0 para indicar que o programa terminou com sucesso
 }
-
+*/
