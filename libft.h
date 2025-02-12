@@ -35,6 +35,7 @@ int     ft_isalnum(int c); // Verifica se o caractere é alfanumérico
 int     ft_isalpha(int c); // Verifica se o caractere é alfabético
 int     ft_isascii(int c); // Verifica se o caractere é ASCII
 int     ft_isdigit(int c); // Verifica se o caractere é um dígito
+int		ft_valid_argument(const char *str);
 int     ft_isprint(int c); // Verifica se o caractere é imprimível
 void    *ft_memchr(const void *s, int c, size_t n); // Localiza um byte em um bloco de memória
 int     ft_memcmp(const void *s1, const void *s2, size_t n); // Compara dois blocos de memória
