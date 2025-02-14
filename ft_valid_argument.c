@@ -12,29 +12,29 @@
 
 #include "libft.h"
 
-// Função de validação de argumentos
 int	ft_valid_argument(const char *str)
 {
-	char	**args;
-	int		i;
-
-	// Dividir a string em substrings ao encontrar o delimitador espaço
-	args = ft_split(str, " ");
-	if (!args)// Verificar se a divisão falhou
+	// Verifica se a string é nula ou vazia
+	if (!str || str[0] == '\0')
 		return (0);
-	// Iterar sobre todas as substrings
-	i = 0;
+	// Validação inicial da string completa usando ft_digit_valid
+	if (!ft_digit_valid(str))
+		return (0);
+	// Divide a string em substrings usando ft_split
+	char **args = ft_split(str, ' ');
+	if (!args) // Verifica se ft_split falhou
+		return (0);
+	// Verifica cada substring individualmente
+	int i = 0;
 	while (args[i] != NULL)
 	{
-		// Validar se cada substring é um dígito válido
 		if (!ft_digit_valid(args[i]))
 		{
-			ft_freememoria(args); //Liberar a memoria alocada
+			ft_freememoria(args);
 			return (0);
 		}
 		i++;
 	}
-	// Liberar a memória alocada
-	ft_freememoria(args);
-	return (1);
+	ft_freememoria(args); // Libera a memória alocada por ft_split
+	return (1); // Tudo válido
 }
