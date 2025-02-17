@@ -28,7 +28,7 @@ int ft_isascii(int c)
         return (0); // Retorna 0 se c não estiver dentro do intervalo ASCII
     }
 }
-
+/*
 int main()
 {
     char ch1 = 'A'; // Caractere de exemplo ASCII
@@ -44,3 +44,4 @@ int main()
 
     return 0; // Retorna 0 para indicar que o programa terminou com sucesso
 }
+*/
