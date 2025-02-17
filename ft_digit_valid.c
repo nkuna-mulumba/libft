@@ -3,39 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_digit_valid.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nkuna <nkuna@student.42.fr>                #+#  +:+       +#+        */
+/*   By: jcongolo <jcongolo@student.42madrid.com>   #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-02 23:03:57 by nkuna             #+#    #+#             */
-/*   Updated: 2025-02-02 23:03:57 by nkuna            ###   ########.fr       */
+/*   Created: 2025-02-04 14:26:18 by jcongolo          #+#    #+#             */
+/*   Updated: 2025-02-04 14:26:18 by jcongolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" // Inclui o cabeçalho da biblioteca padrão
+#include "libft.h"
 
-/*
-	Função para validar se uma string contém apenas dígitos, 
-	opcionalmente precedidos por um sinal '+' ou '-'
-*/
 int	ft_digit_valid(const char *str)
 {
-	// Verifica se o primeiro caractere é um sinal de '-' ou '+'
-	if (*str == '-' || *str == '+')
-	{
-		// Avança o ponteiro para ignorar o sinal (caso exista)
-		str++;
-	}
-	// Percorre cada caractere da string a partir da posição atual (após o sinal, se houver)
+	int	has_sign;
+
+	if (!str || str[0] == '\0') // Verifica se a string é nula ou vazia
+		return (0);
+	has_sign = 0; // Flag para verificar se já encontramos um sinal (+/-)
 	while (*str)
 	{
-		// Verifica se o caractere atual NÃO é um dígito (usando a função ft_isdigit)
-		if (!ft_isdigit(*str))
+		if (*str == '-' || *str == '+')// Permite sinais no início
 		{
-			// Retorna 0 (inválido) se encontrar um caractere não numérico
-			return (0);
+			if (has_sign || *(str + 1) == '\0')
+				// Não permite múltiplos sinais ou sinal isolado
+				return (0);
+			has_sign = 1;// Indica que encontramos um sinal
 		}
-		// Avança para o próximo caractere da string
-		str++;
+		else if (!ft_isdigit(*str))// Se não for dígito, retorna inválido
+			return (0);
+		str++; // Avança para o próximo caractere
 	}
-	// Retorna 1 (válido) se todos os caracteres após o sinal (se houver) forem dígitos
-	return (1);
+	return (1); // Tudo válido
 }
