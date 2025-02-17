@@ -9,10 +9,10 @@
 /*   Updated: 2024/10/18 20:31:03 by jcongolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h" // Inclui o cabeçalho da biblioteca padrão
 
-/*Passo a Passo para Criar a Função ft_itoa
+/*
+Passo a Passo para Criar a Função ft_itoa
 Contar Dígitos: Crie uma função auxiliar digit_counter para contar o número de dígitos no número inteiro. Esta função também trata casos especiais como 0 e -2147483648.
 Calcular Potência de 10: Crie uma função auxiliar exp_counter para calcular a potência de 10 correspondente ao número de dígitos. Esta função ajuda a extrair cada dígito do número.
 Converter Inteiro para String: Crie a função principal ft_itoa que:
@@ -21,19 +21,24 @@ Usa exp_counter para calcular a potência de 10.
 Aloca memória suficiente para a string resultante usando malloc.
 Trata números negativos adicionando o sinal - à string.
 Extrai cada dígito do número e o adiciona à string.
-Adiciona o terminador nulo \0 ao final da string.*/
+Adiciona o terminador nulo \0 ao final da string.
+*/
 
 // Função auxiliar para contar os dígitos de um número
-static int ft_count_nbr(int n) {
+static int ft_count_nbr(int n)
+{
     int length_nbr;
 
     length_nbr = 0; // Inicializa o comprimento em 0
-    if (n <= 0) {
+    if (n <= 0)
+	{
         length_nbr = 1; // Conta o sinal '-' ou o número '0'
-    } else {
+    } else
+	{
         length_nbr = 0; // Para números positivos, inicia com 0
     }
-    while (n != 0) {
+    while (n != 0)
+	{
         n = n / 10; // Divide o número por 10 para remover o último dígito
         length_nbr++; // Incrementa o comprimento
     }
@@ -41,7 +46,8 @@ static int ft_count_nbr(int n) {
 }
 
 // Função principal para converter um número inteiro em uma string
-char *ft_itoa(int n) {
+char *ft_itoa(int n)
+{
     int length;
     char *int_to_str;
     long num;
@@ -53,7 +59,7 @@ char *ft_itoa(int n) {
     int_to_str[length] = '\0'; // Define o caractere nulo no final da string
     num = n;
     if (num == 0)
-        int_to_str = '0'; // retorna "0" se 'num' for 0
+        int_to_str[0] = '0'; // retorna "0" se 'num' for 0
     if (num < 0) {
         int_to_str[0] = '-'; // Adiciona o sinal negativo no início da string
         num = -num; // Converte o número para positivo
